@@ -143,6 +143,7 @@ dist/
 *build/
 _gh_pages/
 static/images/.DS_Store
+static/*.map
 .DS_Store
 classNames.json
 app.bundle.js.LICENSE.txt
