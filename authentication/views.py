@@ -44,4 +44,15 @@ def logout_view(request):
     return response
 
 def register_view(request):
-    return render(request, "accounts/login.html", context)
+    form = SignUpForm()
+
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "You have registered successfully!")
+            return HttpResponseRedirect(reverse('login'))
+        else:
+            messages.error(request, "There is an error in the form!")
+
+    return render(request, "accounts/register.html")
