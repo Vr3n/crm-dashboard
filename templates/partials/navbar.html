@@ -1,5 +1,7 @@
 <header>
-  <nav class="bg-white border border-gray-400 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+  <nav
+    class="bg-white border border-gray-400 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+  >
     <div class="flex flex-wrap justify-between items-center">
       <div class="flex justify-start items-center">
         <button
@@ -758,11 +760,19 @@
             aria-labelledby="dropdown"
           >
             <li>
-              <a
+              <button
                 href="#"
+                hx-post="{% url 'logout' %}"
+                id="logout_button"
+                hx-trigger="confirmed"
                 class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >Sign out</a
+                hx-push-url="{% url 'login' %}"
+                class="nav-link"
+                hx-target="body"
+                style="cursor: pointer"
               >
+                Sign out
+              </button>
             </li>
           </ul>
         </div>
