@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_htmx",
     "compressor",
 
     "authentication.apps.AuthenticationConfig",
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_htmx.middleware.HtmxMiddleware',
+    'crm.middleware.HtmxMessageMiddleware',
 ]
 
 ROOT_URLCONF = 'crm.urls'
@@ -148,3 +151,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Auth settings.
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "login"
+LOGIN_URL = "login"
