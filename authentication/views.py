@@ -52,7 +52,6 @@ def register_view(request):
             form.save()
             messages.success(request, "You have registered successfully!")
             return HttpResponseRedirect(reverse('login'))
-        else:
-            messages.error(request, "There is an error in the form!")
+        messages.error(request, "There is an error in the form!")
 
     return render(request, "accounts/register.html")
